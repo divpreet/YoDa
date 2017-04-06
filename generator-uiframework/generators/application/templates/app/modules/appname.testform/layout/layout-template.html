@@ -1,0 +1,44 @@
+<div class="appname-testform-layout container">
+	<h3 class="body-font appname-testform-layout__title">{{ message }}, This will be the demo of a dynamically generated form</h3>
+		<form name="vm.testForm" ng-submit="vm.submit();">
+			<div class="row">
+				<div class="panel panel-responsive">
+					<h3 class="body-font appname-testform-layout__title">
+						Please enter your details
+					</h3>
+					<hr>
+					<div class="panel-body appname-testform-layout__body">
+						<span ng-repeat="field in vm.formData" class="col-xs-12 clearfix" ng-class="{'layout-margin': vm.isIE()}">
+							<appname-text-field
+									name="{{field.name}}"
+									type="{{field.type}}"
+									model="field.model"
+									error-msg="{{field.errorMsg}}"
+									is-invalid="{{vm.isFieldInvalid(field.name)}}"
+									label="{{field.label}}"
+									is-disabled="{{field.isDisabled}}"
+									group-prefix="{{field.groupPrefix}}"
+									locked-tooltip-msg="{{field.lockedTooltipMsg}}"
+									locked-tooltip-position="{{field.lockedTooltipPosition}}"
+									placeholder-text="{{field.placeholderText}}"
+									validate-type="{{field.validateType}}"
+									validate-maxlength="{{field.validateMaxlength}}"
+									validate-disable="{{field.validateDisable}}"
+									validate-required="{{field.validateRequired}}"
+									regex-flags="{{field.regexFlags}}"
+									additional-business-validation="{{field.additionalBusinessValidation}}"
+									additional-business-validation-on-blur="vm.onCommonValidateBlur()"
+									label-left="{{field.labelLeft}}"
+									validate-pattern-on-blur="{{field.validatePatternOnBlur}}">
+							</appname-text-field>
+						</span>
+					</div>
+				</div>
+			</div>
+			<br>
+			<button type="submit" name="button" class="btn btn-primary">Submit</button>
+		</form>
+		<h4>
+			This form is populated from testForm.json present in angular.mock directroty under testform. Modify the json and refresh the page to see the change in effect without actually building the whole application
+		</h4>
+</div>

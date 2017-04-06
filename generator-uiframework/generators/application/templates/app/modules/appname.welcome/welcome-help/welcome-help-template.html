@@ -1,0 +1,37 @@
+
+<div class="wbc appname-welcomeHelp container">
+
+    <div class="appname-welcomeHelp__content">
+
+        <div class="introWrapper panel panel-responsive col-xs-12">
+        <h2 class="appname-welcomeHelp__content__title body-font">Goodmorning {{vm.firstName}}</h2>
+        <h1 class="appname-welcomeHelp__content__subtitle body-font">How are you today?</h1>
+
+        <P class="title">This is a demo site for the new UI Framework being used within areas of Westpac. <br> From here you can:</p>
+
+
+          <p class="content">- View all the components delivered on a project. Some of these will turn into Global Components </p>
+
+            <p class="content">- See the current Global Components </p>
+            <p> See a dynamic form created from a mock json file </p>
+
+        <p class="content">- View our user guide to see what is in this framework including where you can download it from and start your own project in less than 10 minutes.</p>
+
+
+
+        <div class="appname-welcomeHelp__content__actions">
+			<p>
+				<a ng-if="vm.isLocal" target="_blank" href="dashboard.html" class="btn btn-primary btn-lg appname-welcomeHelp__content__actions__btn">Dashboard</a>
+				<a ui-sref="home.project" class="btn btn-primary btn-lg appname-welcomeHelp__content__actions__btn">Project Components</a>
+				<a ui-sref="home.myform" class="btn btn-primary btn-lg appname-welcomeHelp__content__actions__btn">Global Components</a>
+			</p>
+			<p>
+				<a ui-sref="home.testform" class="btn btn-primary btn-lg appname-welcomeHelp__content__actions__btn">Form example</a>
+				<a ui-sref="home.userguide" class="btn btn-primary btn-lg appname-welcomeHelp__content__actions__btn">User Guide</a>
+			</p>
+        </div>
+    </div>
+
+      </div>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="appname-project-components">
+	<p class="appname-project-components__text">
+		<h2 class="body-font appname-myform-layout__title">Project Components</h2>
+		<div class="table-responsive" ng-repeat="(key,val) in vm.projects">
+			<table class="table table-bordered" ng-repeat="(key2,val2) in val">
+				<caption>{{key2}}</caption>
+				<thead>
+					<tr>
+						<th class="component-name">NAME
+						</th>
+						<th class="component-description">DESCRIPTION
+						</th>
+						<th class="component-preview">PREVIEW
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="component in val2">
+						<td>
+								{{component.name}}
+						</td>
+						<td>
+								{{component.description}}
+						</td>
+						<td>
+							<img src={{component.preview}} alt="component image"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</p>
+</div>

@@ -1,0 +1,582 @@
+<div class="appname-layout">
+
+	<h1 class="appname-welcomeHelp__content__title body-font">User Guide</h1>
+
+	<div class="tabcordion tabcordion-tabs">
+		<ul class="tabcordion-tabs">
+			<li id="gettingStartedTab" class="tabcordion-tab js-collapsible-tab is-active">
+				<a class="js-collapsible" href="javascript:void(0)" ng-click="vm.toggleOuterTabs('gettingStartedTab','gettingStartedContent')">Getting Started</a>
+			</li>
+			<li id="angularStandardsTab" class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="javascript:void(0)" ng-click="vm.toggleOuterTabs('angularStandardsTab', 'angularStandardsContent')">Angular Coding Conventions</a>
+			</li>
+			<li id="moreInfoTab" class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="javascript:void(0)" ng-click="vm.toggleOuterTabs('moreInfoTab', 'moreInfoContent')">Create Yo Da Application</a>
+			</li>
+			<li id="componentTab" class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="javascript:void(0)" ng-click="vm.toggleOuterTabs('componentTab', 'componentContent')">Create Yo Da Component</a>
+			</li>
+			<li id="yodaNodeModulesTab" class="tabcordion-tab js-collapsible-tab">
+				<a class="js-collapsible" href="javascript:void(0)" ng-click="vm.toggleOuterTabs('yodaNodeModulesTab', 'yodaNodeModulesContent')">What Makes Up Yoda</a>
+			</li>
+		</ul>
+		<div id="gettingStartedContent" class="collapsible-body is-open" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<p>
+					<h2>Download list:</h2> Note: Download and install in the same order.
+					<ol>
+						<li><b>GIT</b>: https://git-scm.com/. As windows command prompt option</li>
+						<li><b>NodeJs</b>: https://nodejs.org/en/download/. Ensure npm folder from user cache and installed location are added to environment path variable.</li>
+						<li><b>Python 2.7.11 only</b></li>
+						<li><b>Source Tree</b></li>
+						<li><b>Atom Web editor</b> or Brackets - for brackets update the proxy entry in the preferences file to:
+							<ul>
+								<li>http://&#060;SALARYID&#062;:&#060;PASSWORD&#062;@intproxy80.prod.srv.westpac.com.au:80/</li>
+								<li>Restart to connect to internet for extensions.</li>
+							</ul>
+						</li>
+						<li><b>Slack</b> collaborative tool. Speak to Harish or Dan for invitation to Slack.</li>
+						<li><b>Google Chrome, Firefox and Safari</b></li>
+						<li><b>Chrome extensions</b>:</li>
+						<ul>
+							<li><a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop">postman client</a></li>
+							<li><a href="https://chrome.google.com/webstore/detail/dimensions/baocaagndhipibgklemoalmkljaimfdj">dimensions</a></li>
+							<li><a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei">reload</a></li>
+						</ul>
+						<li><b>Fiddler</b>: Version dependent on the version of .NET framework installed in your system.</li>
+					</ol>
+				</p>
+
+				<p>
+					<h2><b>General Grunt commands:</b></h2>
+					<ol>
+						<li>Clear the npm cache: <b>npm cache clear</b> - Run only if, you sense something wrong with npm and want to clear up everything </li>
+						<li>Remove the node modules installed: <b>npm config rm -rf node_modules</b> (removes the node modules installed in the selected path). Run only if, you sense something wrong with project specific node module installation and want to clear up everything.
+						</li>
+						<li>Remove proxy: run only if you want to reset the proxy.
+							<ul>
+								<li><b>npm config rm proxy</b> </li>
+								<li><b>npm config rm https-proxy</b></li>
+							</ul>
+						</li>
+
+						<li>Set proxy: specific to the console window session. Once the window is closed, the proxy is lost and you have run these commands again. To set the proxy in a new window:
+							<ul>
+								<li>
+									<b>npm config set proxy</b> http://&#060;SALARYID&#062;:&#060;PASSWORD&#062;@intproxy80.prod.srv.westpac.com.au:80/
+								</li>
+								<li>
+									<b>npm config set https-proxy</b> http://&#060;SALARYID&#062;:&#060;PASSWORD&#062;@intproxy80.prod.srv.westpac.com.au:80/
+								</li>
+							</ul>
+						</li>
+
+						<li>Disable strict certificate verification/validation used for security:
+							<ul>
+								<li><b>npm config set strict-ssl false</b></li>
+							</ul>
+						</li>
+						<li><b>GIT setting username globally:</b>
+							<ul>
+								<li>git config --global user.name “FULL NAME OF THE USER” </li>
+								<li>git config --global user.email “xxx@westpac.com.au”</li>
+								<li>git config --global --add core.longpaths true</li>
+								<li>git config --global http.sslVerify false</li>
+							</ul>
+						</li>
+					</ol>
+				</p>
+			</div>
+		</div>
+		<div id="moreInfoContent" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				<h2>Creating an applicating using a terminal interface:</h2>
+				<ol>
+					<li>From the command prompt install Yeoman:
+						<ul>
+							<li>
+								<b>npm install -g yo</b>
+							</li>
+						</ul>
+					</li>
+					<li>Install Grunt:
+						<ul>
+							<li>Grunt: <b>npm install -g grunt</b></li>
+							<li>Grunt Cli: <b>npm install -g grunt-cli</b></li>
+						</ul>
+					</li>
+					<li>Run: <b>yo</b> and check if 'yo' is added to the global space. Enter 'Y' at prompt.</li>
+					<li>Download yoda for this you will need access to our <a href="https://bitbucketpilot.srv.westpac.com.au:50910/projects/CC-000/repos/yoda/browse">internal stash</a> - if you cannot logon to this email daniel.whitmarsh@westpac.com.au
+						<ul>
+							<li>Open Sourcetree </li>
+							<li>File -> Clone New </li>
+							<li>Click the world sign at the end of clone new</li>
+							<li>Connect to Bitbucket server using the above address and your LAN ID and password select yoda from list </li>
+							<li>Clone to a folder on c:\yoda3.1</li>
+						</ul>
+					</li>
+					<li>Go to <b>generator-uiframework</b> folder and run npm install from command prompt.</li>
+					<li>In the <b>generator-uiframework</b> folder and run npm link to add the framework to global space.</li>
+					<li>Go to the <b>generator-uicommon</b> folder and run npm link to add the common components to global space.</li>
+					<li>Run <b>yo uicommon</b> and check if the framework and common components are added to the global space.</li>
+					<li>Move to a folder where you want to create a new project. eg. mkdir test then go to this directory</li>
+					<li>Run <b>yo uiframework:install</b></li>
+					<li>Run <b>yo uicommon:install</b></li>
+					<li>From the same folder run <b>yo uiframework:application</b></li>
+					<li>Type <b>grunt</b> (builds the application, runs it and has a watch task for updates)
+						<ul>
+							<li>If the application doesn't run npm isn't installed, run npm install on this folder</li>
+						</ul>
+					</li>
+					<li>Install all the brands and dashboard run from command prompt:
+						<ul>
+							<li><b>grunt build:all</b> builds everything including all brands, dashboard and unit tests</li>
+						</ul>
+						If you require a production environment:
+						<ul>
+							<li>
+								<b>grunt build:dist</b>
+							</li>
+						</ul>
+					</li>
+					<li>Add a new component: run <b>yo uiframework:component</b></li>
+				</ol>
+			</div>
+		</div>
+		<div id="angularStandardsContent" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				<p>
+					<h3><b>Scope properties/attributes</b></h3> Use dashes for HTML attributes and camelCase for directive scope and HTML data bindings.</p>
+				<p>
+					<h3><b>HTML attributes</b></h3> Dashes for attributes
+					<pre><code>&#60;start-property-tile property-value="$1,234,000"&#62;</code></pre>
+				</p>
+				<p><b><h3>Directive</h3></b> Camel case for scope object items
+					<br>
+					<pre><code>function propertyTile() {
+	var directive = {
+		scope: {
+			propertyValue: '@'
+		}
+	};
+}</code></pre></p>
+				<p>
+					<b><h3>Data binding in HTML</h3></b> Camel case for data bindings inside double curly braces.
+					<pre><code>&#60;span class="start-property-tile__range-value__money">&#123;&#123;vm.propertyValue&#125;&#125;</span>&#62;</code></pre>
+				</p>
+				<p><b><h3>controllerAs convention</h3></b> Use vm for dot notation in data binding, where vm value assigned to the controllerAs property of the directive object.</p>
+				<p><b><h5>HTML</h5></b>
+					<pre><code>&#123; &#123; vm.propertyValue &#125; &#125;</code></pre></p>
+				<p><b><h5>Directive</h5></b>
+					<pre><code>function propertyTile() {
+	var directive = {
+		controller: Controller,
+		controllerAs: 'vm',
+		bindToController: true
+	};
+}</code></pre>
+				</p>
+				<p>
+					<b><h3>Mock data</h3></b> The relevant property of scope.mock must be passed to the corresponding HTML attribute. <pre><code>&#60;start-landing-layout property-tiles="mock.property_tiles"> &#60;/start-landing-layout&#62;</code></pre>
+				</p>
+				<p><b><h3>ngRepeat with mock data</h3></b> The mock data is passed to the corresponding controller property:
+					<pre><code>&#60;start-property-tile ng-repeat="tile in vm.propertyTiles track by $index" property-value="&#123;&#123;tile.property_value.value&#125;&#125;"> &#60;/start-property-tile&#62;</code></pre> Note: track by $index improves ngRepeat performance
+					by limiting DOM changes to only the items that have data changes.</p>
+				<p><b><h3>Module dependency</h3></b> If a directive uses another directive from a different module, the module must be required in the index.js file and its dependencies included.
+					<pre><code>(function moduleInit_startWonder() {
+
+// Add require for other modules here
+require('../start.tiles');
+
+// Grunt browserify-imports require all components with an index.js here
+// StartRequire
+require('./landing-layout');
+var angularModuleDependencies = ["start.wonder.landingLayout"];
+// EndRequire
+
+// Add your angular module dependencies here
+angularModuleDependencies.push('start.tiles');
+
+angular.module('start.wonder', angularModuleDependencies);
+})();</code></pre></p>
+				<p> <b><h3>Scope binding</h3></b> A scope property with a value of @ indicates static binding.
+					<pre><code>scope: {
+	propertyValue: '@'
+}</code></pre> A scope property with a value of = indicates dynamic, two-way data binding. This is required for passing values to the ngRepeat.
+					<pre><code>scope: {
+	propertyTiles: '='
+}</code></pre></p>
+			</div>
+		</div>
+		<div id="yodaNodeModulesContent" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				<div class="icon-grid">
+				<div class="row center-row">
+					<div class="col-sm-4"><img src="https://pbs.twimg.com/profile_images/3786155988/46ea2dd8b1bdd31a8ba61044cb5b6ebe_400x400.png"
+								height="100px" alt="Yeoman"></div>
+					<div class="col-sm-4"><img src="https://camo.githubusercontent.com/39242419c60a53e1f3cecdeecb2460acce47366f/687474703a2f2f6772756e746a732e636f6d2f696d672f6772756e742d6c6f676f2d6e6f2d776f72646d61726b2e737667"
+								height="100px" alt="Grunt"></div>
+					<div class="col-sm-4"><img src="http://substack.net/images/browserify_logo.png"
+								height="100px" alt="Browserify"></div>
+				</div>
+				<div class="row center-row">
+					<div class="col-sm-4"><img src="https://karma-runner.github.io/assets/img/banner.png" height="60px" alt="Karma"></div>
+					<div class="col-sm-4"><img src="http://jasmine.github.io/images/jasmine_vertical.svg" height="100px" alt="Jasmine"></div>
+					<div class="col-sm-4"><img src="https://avatars2.githubusercontent.com/u/2565403?v=3&s=400"
+								height="100px" alt="Lodash"></div>
+				</div>
+				<div class="row center-row">
+					<div class="col-sm-6"><img src="https://pbs.twimg.com/profile_images/1884362265/phantomjs_400x400.png"
+								height="100px" alt="PhantomJS"></div>
+					<div class="col-sm-6"><img src="http://10.148.44.60/core_images/restangular.png" height="70px" alt="Restangular"></div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div id="componentContent" class="collapsible-body" aria-hidden="true" tabindex="-1">
+			<div class="tabcordion-body">
+				<ol>
+					<h1>Create component</h1>
+					<li>Type yo uiframework:component</li>
+					<li>Fill in</li>
+					<ul>
+						<li>Prefix (eg. wbc or gui)</li>
+						<li>Module name</li>
+						<li>Directive name</li>
+					</ul>
+					<li>That then creates a folder with files </li>
+				</ol>
+				<div class="tabcordion tabcordion-accordion">
+
+					<div id="innerIntroTab" class="tabcordion-body-header js-collapsible-tab">
+						<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('innerIntroTab','innerIntroContent')">Introduction</a>
+					</div>
+					<div id="innerIntroContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+
+						<div class="tabcordion-body">
+							<span>All of these files all contribute to the creation of an AngularJS component. The reason why the components are made of smaller components is to allow developers to work in isolation on components together. The isolation allows for loosely coupled code that is easily tested and maintained.</span></br>
+							</br>The component showcased is: </br>
+							</br>
+								<div><img src="http://10.148.44.60/core_images/dangeralert.png" alt="Danger alert"></div>
+						</div>
+					</div>
+
+		<div id="directiveTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('directiveTab','directiveContent')">DIRECTIVE - alert-directive.js</a>
+		</div>
+		<div id="directiveContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>Directives are markers on DOM elements that tell AngularJS to attach behaviour to that element or to transform that element and its children.</span>
+				<pre><code>(function guiAlertDirective() {
+'use strict';
+var componentsModule = angular.module('gui.ng.components.alert', []);
+componentsModule.directive('guiAlert', alert);
+
+alert.$inject = [];
+
+function alert() {
+	var directive = {
+		restrict: 'EA',
+		transclude: true,
+		template: require('./alert-template.html'),
+		scope: {
+			type: '@',
+			closeButton: '=?',
+			isClosed: '=?'
+		},
+		link: linkFunc
+	};
+
+	return directive;
+
+	function linkFunc(scope, el, attr, ctrl) {
+		scope.isClosed = scope.isClosed || false;
+		scope.closeAlert = function() {
+			scope.isClosed = true;
+		};
+	}
+}
+})();</code></pre> The directive can then be used as <pre><code>&#60;gui-alert>&#60;/gui-alert></code></pre>
+			</div>
+		</div>
+
+		<div id="unitTestTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('unitTestTab','unitTestContent')">UNIT TEST - alert-directive.specs.js</a>
+		</div>
+		<div id="unitTestContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>Unit testing is testing small units of code. AngularJS ensures functions are isolated by abstracting the DOM and enabling mocking, stubs and dependency injections natively. This results in easily testable code that can be tested in compartments - enhancing code quality.</span>
+				<pre><code>// require('./alert-directive.js');
+describe('gui.ng.components - Alert Directive', function() {
+   var $compile,
+   $rootScope;
+
+   // Load the module, which contains the directive
+   beforeEach(angular.mock.module('gui.ng.components.alert'));
+
+   // Store references to $rootScope and $compile
+   // so they are available to all tests in this describe block
+   beforeEach(inject(function(_$compile_, _$rootScope_){
+      // The injector unwraps the underscores (_) from around the parameter names when matching
+      $compile = _$compile_;
+      $rootScope = _$rootScope_;
+   }));
+
+   describe('close button display behavior', function() {
+
+      it('add close button if "close-button" parameter is true', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert close-button="true">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.html()).toContain('alert-close');
+      });
+
+      it('remove close button if "close-button" parameter is false', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile("&#60;gui-alert close-button=\"false\">Hello world&#60;/gui-alert>")($rootScope);
+
+         $rootScope.$digest();
+         // Check that the compiled element contains the templated content
+         expect(element.html()).not.toContain('alert-close"');
+      });
+   });
+
+   describe('A11y with aria-hidden', function () {
+      it('add aria-hidden="true" when the param is-close="true"', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert is-closed="true">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.find('.alert').attr('aria-hidden')).toBe('true');
+      });
+
+      it('remove aria-hidden="true" when the param is-close="false"', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert is-closed="false">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.find('.alert').attr('aria-hidden')).toBe('false');
+      });
+   });
+
+   describe('add correct class for from the type param', function () {
+      it('add class "alert-success" when param type="success"', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert type="success">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.find('.alert').hasClass('alert-success')).toBe(true);
+      });
+
+      it('add class "alert-warning" when param type="warning"', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert type="warning">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.find('.alert').hasClass('alert-warning')).toBe(true);
+      });
+
+      it('add class "alert-danger" when param type="danger"', function() {
+         // Compile a piece of HTML containing the directive
+         var element = $compile('&#60;gui-alert type="danger">Hello world&#60;/gui-alert>')($rootScope);
+
+         $rootScope.$digest();
+
+         expect(element.find('.alert').hasClass('alert-danger')).toBe(true);
+      });
+   });
+
+   describe('transclude element behavior', function () {
+      it('transclude the text Hello world', function () {
+         var transcludedContent = 'Hello world';
+         var node = $compile('&#60;div>&#60;gui-alert is-closed="false">' + transcludedContent + '&#60;/gui-alert>&#60;/div>')($rootScope);
+         var contents = node.contents();
+         expect(node.find('ng-transclude').html()).toContain(transcludedContent);
+      });
+   });
+
+});</code></pre>
+			</div>
+		</div>
+
+		<div id="mockTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('mockTab','mockContent')">MOCK DATA - directivename-mock.js</a>
+		</div>
+		<div id="mockContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>Creates data inside the $scope which can then be used by the component.</span>
+				<pre><code>scope.mock = {
+	'type' : { value: 'success', mandatory: true, options: ['success', 'warning', 'danger'] },
+	'closeButton': { value: true, mandatory: false },
+	'isClosed' : { value: false, mandatory: false }
+};</code></pre>
+			</div>
+		</div>
+
+		<div id="htmlTemplateTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('htmlTemplateTab','htmlTemplateContent')">HTML TEMPLATE - alert-template.html</a>
+		</div>
+		<div id="htmlTemplateContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>This HTML document represents the HTML that is displayed in place of the directive <span class="inline-code">&#60;gui-alert>&#60;/gui-alert></span> in dashboard page.</span>
+				<pre><code>&#60;div ng-class="{'is-closed' : isClosed }" aria-hidden="{{ isClosed }}" class="alert alert-{{ type }}" role="alert">
+	&#60;button ng-if="closeButton" ng-click="closeAlert()" type="button" class="alert-close icon icon-cross" data-grunticon-embed>close&#60;/button>
+	&#60;ng-transclude>&#60;/ng-transclude>
+&#60;/div></code></pre>
+			</div>
+		</div>
+
+		<div id="lessTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('lessTab','lessContent')">LESS (CSS) FILE - alert-style.less</a>
+		</div>
+		<div id="lessContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>This component only uses global WBC styles and doesn't have a LESS file. This is an example less file for the component that will be compiled into CSS to define the styles. The global styles will also be added to the component at compile time.</span>
+				<pre><code>@import (reference) "../../gui.blend/index.less";
+@import (reference) "../../appname.app/index.less";
+.appname-combobox {
+    .btn-group {
+        &-title {
+            .appname-label();
+        }
+    }
+    .disabled {
+        .appname-disabled();
+    }
+    &__mandatory {
+        color: red;
+    }
+    &__fieldset {
+        &__icon {
+            display: inline-block;
+            float: right;
+            margin-top: 4px;
+            .appname-tooltip();
+        }
+    }
+    .btn-group-item {
+        .btn-group-text.has-warning {
+            border-color: @color-Warning;
+        }
+    }
+    .input-group-row{
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        display: table;
+        & .input-group-input{
+            width: 100%;
+            display: table-cell;
+            position: relative;
+            min-height: 1px;
+        }
+        & .input-group-addon{
+            width: 36px;
+            display: table-cell;
+            position: relative;
+            min-height: 1px;
+        }
+    }
+    .combobox-container{
+        & ul > li{
+            font-size: 14px;
+        }
+        & .icon-cross {
+            display: none;
+        }
+        & .caret{
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-left: 2px;
+            vertical-align: middle;
+            border-top: 8px solid;
+            border-right: 7px solid transparent;
+            border-left: 7px solid transparent;
+        }
+        & .opened{
+            & .caret {
+                border-bottom: 8px solid;
+                border-top: 0;
+            }
+        }
+        &.combobox-selected {
+            & .caret {
+                display: none;
+            }
+            & .icon-cross {
+                display: block;
+                margin: 2px 0 0 2px;
+            }
+        }
+    }
+
+    .typeahead-long {
+        max-height: 300px;
+        overflow-y: auto !important;
+    }
+}</code></pre>
+			</div>
+		</div>
+
+		<div id="dashboardTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('dashboardTab','dashboardContent')">Dashboard page - alert-page.html</a>
+		</div>
+		<div id="dashboardContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>This HTML document represents the HTML that will be displayed on the page. It contains all the code required to support the custom directive such as initialising the app and importing Javascript. AngularJS combines it with information from the model and controller to construct a dynamic view within the template.</span>
+				<pre><code>&#60;!doctype html>
+&#60;html>
+&#60;head>
+   &#60;link rel="stylesheet" href="../../app/dist/gui.ng.components.min.css">
+
+   &#60;script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js">&#60;/script>
+   &#60;script src="../../app/dist/gui.ng.components.js">&#60;/script>
+
+   &#60;script type="text/javascript">
+   	var myApp = angular.module('myApp', ['gui.ng.components']);
+   &#60;/script>
+
+&#60;/head>
+&#60;body ng-app="myApp">
+
+   &#60;main class="container">
+      &#60;h1 class="body-font">Alert component&#60;/h1>
+      &#60;gui-alert close-button="mock.closeButton.value" type="&#123;&#123;mock.type.value}}" data-is-closed="mock.isClosed.value" data-grunticon-embed>
+         I'm a danger alert.
+      &#60;/gui-alert>
+   &#60;/main>
+
+&#60;/body>
+&#60;/html></code></pre>
+			</div>
+		</div>
+
+		<div id="indexFileTab" class="tabcordion-body-header js-collapsible-tab">
+			<a class="tabcordion-body-headline js-collapsible" href="javascript:void(0)" ng-click="vm.toggleInnerTabs('indexFileTab','indexFileContent')">INDEX File - index.js</a>
+		</div>
+		<div id="indexFileContent" class="collapsible-body" aria-hidden="false" tabindex="-1">
+			<div class="tabcordion-body">
+				<span>Initiates the component.</span>
+				<pre><code>(function alertInit() {
+	'use strict';
+
+	// declare the component angular module, you can inject dependencies here
+	angular.module('gui.ng.components.alert', []);
+
+	// Require your components here
+	require('./alert-directive.js');
+
+}());</code></pre>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>

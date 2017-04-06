@@ -1,0 +1,9 @@
+{
+  "lazyload": true,
+  "angularVersion": "1.4.8",
+  "appFolder": "/app",
+  "distFolder": "/build/",
+  "componentsFolder": "/modules/",
+  "mockFolder": "mock/",
+  "brands": ["WBC", "STG", "BOM", "BSA"]
+}

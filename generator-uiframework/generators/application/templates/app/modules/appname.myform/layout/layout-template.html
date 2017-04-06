@@ -1,0 +1,309 @@
+<div class="appname-myform-layout container">
+
+    <h3 class="body-font appname-myform-layout__title">{{ message }}, This will be the demo page for common components</h3>
+
+    <div class="appname-myform-layout__text">
+
+      <div class="row">
+			<div class="panel panel-responsive col-xs-12">
+				<div class="panel-body">
+					<appname-idv-layout></appname-idv-layout>
+				</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-multicomponent-layout></appname-multicomponent-layout>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-multi-input group-title="Multi Input example" model="vm.multiInputModel" list-of="vm.multiInput" yes-text="Yes, Enter details" no-text="No, Not applicable" max-input="3" dependencies="vm.countryList,vm.smallList">
+                        <div class="row no-margin form-group">
+                            <div class="col-xs-4">
+                                <label for="addcountry">Country <span class="required">(Required)</span></label>
+                            </div>
+                            <div class="col-xs-8">
+                                <label for="overseasTIN">Foreign Tax Identification Number <span class="required">(Required)</span></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class=" input-field-select-wrapper">
+                                    <select name="addcountry" class="input-field-select" id="addcountry" ng-model="vm.multiInput.country" ng-options="item.value.toUpperCase() for item in vm.countryList | orderBy:'code' track by item.code" required data-arc-key="custCreat_CountryDrpDwn_001">
+                                        <option value="">Select Country</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-8">
+                                <div class="form-group row">
+                                    <div class="col-xs-6">
+                                        <input autocomplete="off" type="text" name="overseasTIN" ng-model="vm.multiInput.tin" ng-disabled="vm.multiInput.tinNotApplicable" class="input-field" id="overseasTIN" maxlength="20" ng-pattern="/^[^?%]+$/" placeholder="" data-arc-key="">
+                                        <!--<mark ng-show="(organisationForm.overseasTIN.$invalid || organisationForm.overseasTIN.$error.pattern) &&
+													(!organisationForm.overseasTIN.$pristine || crsDetails.submitted)"
+											  class="help-block" data-arc-key="">Please enter a valid Overseas TIN.
+										</mark>-->
+                                    </div>
+                                    <div class="col-xs-6 checkbox-custom" style="height: 36px;">
+                                        <label class="checkbox">
+                                            <input class="checkbox-input" autocomplete="off" type="checkbox" name="mobileNotApplicable" ng-model="vm.multiInput.tinNotApplicable" ng-value="true" value="true">
+                                            <span class="checkbox-text">Not Applicable</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="col-xs-6" ng-show="vm.multiInput.tinNotApplicable">
+                                        <label for="addcountry">Reason <span class="required">(Required)</span></label>
+                                        <div class=" input-field-select-wrapper">
+                                            <select name="addcountry" class="input-field-select" ng-model="vm.multiInput.reason" ng-options="item.value for item in vm.smallList" required data-arc-key="custCreat_CountryDrpDwn_001">
+                                                <option value="">Select</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </appname-multi-input>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-block-buttons model="vm.blockModel" list="vm.user.blockbuttons.value" label-name="label" value-name="value" group-title="Block Buttons Example" name="options"></appname-block-buttons>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <form name="vm.testForm">
+                        <appname-text-field name="{{vm.user.textField.name}}" type="{{vm.user.textField.input}}" model="vm.textFieldModel" error-msg="{{vm.user.textField.errorMsg}}" is-invalid="{{vm.isFieldInvalid(vm.user.textField.name)}}" group-prefix="{{vm.user.textField.groupPrefix}}" label="{{vm.user.textField.label}}" is-disabled="{{vm.user.textField.isDisabled}}" locked-tooltip-msg="{{vm.user.textField.lockedTooltipMsg}}" locked-tooltip-position="{{vm.user.textField.lockedTooltipPosition}}" placeholder-text="{{vm.user.textField.placeholderText}}" validate-type="{{vm.user.textField.validateType}}" validate-max-value="{{vm.user.textField.validateMaxValue}}" validate-maxlength="{{vm.user.textField.validateMaxlength}}" validate-disable="{{vm.user.textField.validateDisable}}" validate-pattern="{{vm.user.textField.validatePattern}}" validate-pattern-on-blur="{{vm.user.textField.validatePatternOnBlur}}" apply-filter-on-blur="{{vm.user.textField.applyFilterOnBlur}}" additional-business-validation="{{vm.user.textField.additionalBusinessValidation}}" required-length="{{vm.user.textField.requiredLength}}" validate-required="{{vm.user.textField.validateRequired}}" regex-flags="{{vm.user.textField.regexFlags}}" additional-business-validation-on-change="vm.onCommonValidateChange(fieldName, model, isFieldValid, isKeyPressed)" additional-business-validation-on-blur="vm.onCommonValidateBlur()"></appname-text-field>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-combobox model="vm.comboModel" list="vm.busClass" label-name="value" value-name="code" group-title="Combobox Example" name="options1"></appname-combobox>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-typeahead model="vm.typeaheadModel" list="vm.busClass" label-name="value" value-name="code" group-title="Typeahead Example" name="options1">
+                    </appname-typeahead>
+                </div>
+            </div>
+        </div>
+        <!--<appname-predictive-address-search address-obj="vm.address" state-list="vm.states"
+										  matching-address-list="vm.addressList"
+										  formatted-address="vm.formattedAddress"
+										  get-matching-address-list="getAddressList(addressValue)"
+										  get-formatted-address="getAddress(idValue)"
+										  label-name="value" value-name="code" group-title="QAS Example"
+										  name="options1">
+		</appname-predictive-address-search>
+
+		<!--<appname-non-standard-address address-obj="vm.address" state-list="vm.states"
+									 label-name="value" value-name="code" group-title="Manual Fields"
+									 name="options1">
+		</appname-non-standard-address>-->
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-address-component-layout address-obj="vm.address" state-list="vm.states" matching-address-list="vm.addressList" country-list="vm.countryList" formatted-address="vm.formattedAddress" get-matching-address-list="getAddressList(addressValue)" get-formatted-address="getAddress(idValue)">
+                    </appname-address-component-layout>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-responsive col-xs-6">
+                <div class="panel-body">
+                    <appname-tiles model="vm.tilesModel" multi-output="true" multi-column="true" list="vm.smallList" label-name="value" value-name="code" group-title="Tiles Example" name="options1"></appname-tiles>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-responsive col-xs-12">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-3">Block selected: </div>
+                        <div class="col-xs-3">{{ vm.blockModel }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Combo selected: </div>
+                        <div class="col-xs-3">{{ vm.comboModel.value || "" }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">TypeAhead selected: </div>
+                        <div class="col-xs-3">{{ vm.typeaheadModel.value || "" }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Address is Line 1</div>
+                        <div class="col-xs-9">{{ vm.address.addressLine1 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Line 2</div>
+                        <div class="col-xs-9">{{ vm.address.addressLine2 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Line 3</div>
+                        <div class="col-xs-9">{{ vm.address.addressLine3 }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">State</div>
+                        <div ng-if="vm.address.state.code != 'FOR'" class="col-xs-9">{{ vm.address.state.value }}</div>
+                        <div ng-if="vm.address.state.code == 'FOR'" class="col-xs-9">{{ vm.address.overseasState }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">City</div>
+                        <div class="col-xs-9">{{ vm.address.city }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Post Code</div>
+                        <div class="col-xs-9">{{ vm.address.pocode }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Country</div>
+                        <div class="col-xs-9">{{ vm.address.country.value }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Tile(s) selected</div>
+                        <div class="col-xs-9"><span ng-repeat="tile in vm.tilesModel">{{tile.value}} </span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-3">Multiple Input(s) selected</div>
+                        <div class="col-xs-9">
+                            <div ng-repeat="inp in vm.multiInputModel">{{inp.country.value}} - {{inp.tin || inp.reason.value}} </div>
+                        </div>
+                    </div>
+
+										<div class="table-responsive">
+					<table class="table">
+						<caption>
+							IDV Documents
+						</caption>
+						<thead>
+							<tr>
+								<th scope="col">Document Type</th>
+								<th scope="col">Is Original?</th>
+								<th scope="col">ID Number</th>
+								<th scope="col">Issued By</th>
+								<th scope="col">Issue Date</th>
+								<th scope="col">Expiry Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-if="vm.idv.aupassport.selected === true">
+								<td>Australian Passport</td>
+								<td>{{vm.idv.aupassport.radio}}</td>
+								<td>{{vm.idv.aupassport.number}}</td>
+								<td> </td>
+								<td>{{vm.idv.aupassport.issueDate}}</td>
+								<td>{{vm.idv.aupassport.expiryDate}}</td>
+							</tr>
+
+							<tr ng-if="vm.idv.aulicence.selected === true">
+								<td>Australian Licence</td>
+								<td>{{vm.idv.aulicence.radio}}</td>
+								<td>{{vm.idv.aulicence.number}}</td>
+								<td>{{vm.idv.aulicence.state}}</td>
+								<td> </td>
+								<td>{{vm.idv.aulicence.expiryDate}}</td>
+							</tr>
+
+							<tr ng-if="vm.idv.otherpassport.selected === true">
+								<td>Foreign Passport</td>
+								<td>{{vm.idv.otherpassport.radio}}</td>
+								<td>{{vm.idv.otherpassport.number}}</td>
+								<td>{{vm.idv.otherpassport.country}}</td>
+								<td>{{vm.idv.otherpassport.issueDate}}</td>
+								<td>{{vm.idv.otherpassport.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.ageproof.selected === true">
+								<td>Age Proof</td>
+								<td>{{vm.idv.ageproof.radio}}</td>
+								<td>{{vm.idv.ageproof.number}}</td>
+								<td>{{vm.idv.ageproof.state}}</td>
+								<td></td>
+								<td>{{vm.idv.ageproof.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.otherlicence.selected === true">
+								<td>Foreign Licence</td>
+								<td>{{vm.idv.otherlicence.radio}}</td>
+								<td>{{vm.idv.otherlicence.number}}</td>
+								<td>{{vm.idv.otherlicence.country}}</td>
+								<td>{{vm.idv.otherlicence.issueDate}}</td>
+								<td>{{vm.idv.otherlicence.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.birthcert.selected === true">
+								<td>Birth Certificate</td>
+								<td>{{vm.idv.birthcert.radio}}</td>
+								<td>{{vm.idv.birthcert.number}}</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+
+							<tr ng-if="vm.idv.pension.selected === true">
+								<td>Pension Card</td>
+								<td>{{vm.idv.pension.radio}}</td>
+								<td>{{vm.idv.pension.number}}</td>
+								<td></td>
+								<td>{{vm.idv.pension.issueDate}}</td>
+								<td>{{vm.idv.pension.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.govtcard.selected === true">
+								<td>Government card</td>
+								<td>{{vm.idv.govtcard.radio}}</td>
+								<td>{{vm.idv.govtcard.number}}</td>
+								<td></td>
+								<td>{{vm.idv.govtcard.issueDate}}</td>
+								<td>{{vm.idv.govtcard.expiryDate}}</td>
+							</tr>
+
+							<tr ng-if="vm.idv.marriagecert.selected === true">
+								<td>Marriage certificate</td>
+								<td>{{vm.idv.marriagecert.radio}}</td>
+								<td>{{vm.idv.marriagecert.number}}</td>
+								<td></td>
+								<td>{{vm.idv.marriagecert.issueDate}}</td>
+								<td>{{vm.idv.marriagecert.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.medicare.selected === true">
+								<td>Medicare card</td>
+								<td>{{vm.idv.medicare.radio}}</td>
+								<td>{{vm.idv.medicare.number}}</td>
+								<td></td>
+								<td></td>
+								<td>{{vm.idv.medicare.expiryDate}}</td>
+							</tr>
+							<tr ng-if="vm.idv.utilcard.selected === true">
+								<td>Utility card</td>
+								<td>{{vm.idv.utilcard.radio}}</td>
+								<td>{{vm.idv.utilcard.number}}</td>
+								<td></td>
+								<td>{{vm.idv.utilcard.issueDate}}</td>
+								<td></td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
